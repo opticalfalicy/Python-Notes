@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'notes'
+    'notes',
+    'bookmarks'
 ]
 
 MIDDLEWARE = [
@@ -121,7 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(BASE_DIR), "notes", "static"),
-)
+# TEMPLATE_DIRS = (
+#     os.path.join(os.path.dirname(BASE_DIR), "notes", "static"),
+# )
 WSGI_APPLICATION = 'djorg.wsgi.application'
