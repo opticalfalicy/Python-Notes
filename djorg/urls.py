@@ -15,12 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from notes.api import NoteViewset
 # from . import views
 # from django.conf.urls import include, url
+
+router = routers.DefaultRouter()
+router.register(r'notes', 'NoteViewset')
 
 urlpatterns = [
     # url(r'^$', 'notes.views.home', name='home'),
     path('admin/', admin.site.urls),
+    path(r'api/', include(router.urls)),
     # path('bookmarks/', include('bookmarks.urls')),
     # path('', views.index, name='index'),
+
 ]
+
+
