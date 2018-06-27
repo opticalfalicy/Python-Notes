@@ -21,6 +21,6 @@ from django.urls import path, include
 urlpatterns = [
     # url(r'^$', 'notes.views.home', name='home'),
     path('admin/', admin.site.urls),
-    path('bookmarks/', include('bookmarks.urls')),
-    path('', views.index, name='index'),
+    # path('bookmarks/', include('bookmarks.urls')),
+    # path('', views.index, name='index'),
 ]
