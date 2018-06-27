@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from notes.api import NoteViewset
+from notes.api import NoteViewSet
 # from . import views
 # from django.conf.urls import include, url
 
 router = routers.DefaultRouter()
-router.register(r'notes', 'NoteViewset')
+router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
     # url(r'^$', 'notes.views.home', name='home'),

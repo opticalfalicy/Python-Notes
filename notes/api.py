@@ -15,7 +15,7 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
         # import pdb; pdb.set_trace()
         pass
 
-class NoteViewset(viewsets.ModelViewSet):
+class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     queryset = PersonalNote.objects.none()
 
