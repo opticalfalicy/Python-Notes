@@ -16,15 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from notes.api import NoteViewSet
+from notes.api import NoteViewSet, PersonalNoteViewSet
+from rest_framework.authtoken import views
 # from . import views
 # from django.conf.urls import include, url
 
 router = routers.DefaultRouter()
 router.register(r'notes', NoteViewSet)
+router.register(r'personal_notes', PersonalNoteViewSet)
 
 urlpatterns = [
     # url(r'^$', 'notes.views.home', name='home'),
+    # re_path(r'^api-token-auth/', views.obtain_auth_token),
     path('admin/', admin.site.urls),
     path(r'api/', include(router.urls)),
     # path('bookmarks/', include('bookmarks.urls')),

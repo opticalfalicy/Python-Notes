@@ -13,6 +13,9 @@ class Note(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str(self):
+        return self.title
+
     #TODO: Tags
 
 class PersonalNote(Note):

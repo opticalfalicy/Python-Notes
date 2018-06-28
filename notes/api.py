@@ -13,10 +13,26 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         # import pdb; pdb.set_trace()
-        pass
+        # pass
+        user = self.context['request'].user
+        personal_note = PersonalNote.objects.create(user=user, **validated_data)
+        return personal_note
 
 class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
+    queryset = Note.objects.all()
+
+    # def get_queryset(self):
+    #     user = self.request.user
+
+    #     if user.is_anonymous:
+    #         return PersonalNote.objects.none()
+
+    #     else:
+    #         return Note.objects.filter(user=user)
+
+class PersonalNoteViewSet(viewsets.ModelViewSet):
+    serializer_class = PersonalNoteSerializer
     queryset = PersonalNote.objects.none()
 
     def get_queryset(self):
@@ -26,4 +42,4 @@ class NoteViewSet(viewsets.ModelViewSet):
             return PersonalNote.objects.none()
 
         else:
-            return Note.objects.fiter(user=user)
+            return PersonalNote.objects.filter(user=user)
