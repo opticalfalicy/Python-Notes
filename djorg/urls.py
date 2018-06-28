@@ -30,7 +30,7 @@ urlpatterns = [
     # re_path(r'^api-token-auth/', views.obtain_auth_token),
     path('admin/', admin.site.urls),
     path(r'api/', include(router.urls)),
-    # path('bookmarks/', include('bookmarks.urls')),
+    path('bookmarks/', include('bookmarks.urls')),
     # path('', views.index, name='index'),
 
 ]
